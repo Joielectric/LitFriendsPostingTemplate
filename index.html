@@ -125,6 +125,18 @@
             transition: all 0.3s ease;
         }
         
+        .form-select option {
+            background: #ffffff;
+            color: #000000;
+            padding: 8px;
+        }
+        
+        .form-input option {
+            background: #ffffff;
+            color: #000000;
+            padding: 8px;
+        }
+        
         .form-input:focus, .form-textarea:focus, .form-select:focus {
             outline: none;
             border-color: #ffcc00;
@@ -417,7 +429,7 @@
             
             <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                 <button type="button" onclick="addAttribute()" style="padding: 8px 16px; background-color: #46d160; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">+ Add Attribute</button>
-                <button type="button" onclick="removeAttribute()" style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">- Remove Last Attribute</button>
+                <button type="button" onclick="removeAttributeField()" style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">- Remove Last Attribute</button>
             </div>
             
             <!-- COPYRIGHT SECTION -->
@@ -880,6 +892,10 @@
         
         // Add event listeners when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            // Set current year as default
+            const currentYear = new Date().getFullYear();
+            document.getElementById('copyrightYear').value = currentYear;
+            
             const inputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
             inputs.forEach(input => {
                 input.addEventListener('input', updatePreviews);
